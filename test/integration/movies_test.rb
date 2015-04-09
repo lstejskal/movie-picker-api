@@ -48,7 +48,20 @@ module MoviePicker
             assert_equal 5, movies.size
           end
 
+          should "pick random movie" do
 
+            movie = Movie.all.first
+
+            Movie.redis.expects(:srandmember).returns(movie)
+
+            delete "/movies"
+
+            assert_equal 200, response.status
+
+            movies = Movie.all
+            assert_equal 4, movies.size
+            assert ! movies.include?(movie)
+          end
 
         end
 

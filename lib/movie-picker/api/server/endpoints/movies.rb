@@ -26,7 +26,13 @@ module MoviePicker
               end
             end
 
-            # pick random movie
+            # picks random movie from queue, deletes from database and returns it in response
+            app.delete "/movies" do
+              movie = Movie.pick_random
+
+              status 200
+              json(data: { movie: { name: movie } }, code: 200)
+            end
 
           end
         end
