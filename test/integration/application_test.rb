@@ -7,7 +7,6 @@ module MoviePicker
         include MoviePicker::Api::Models
 
         context "Application" do
-
         end
 
       end

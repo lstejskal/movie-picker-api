@@ -33,11 +33,11 @@ class IntegrationTestCase < Minitest::Test
 
   def teardown
     super
-    Redis::Persistence.config.redis.flushdb
+    MoviePicker::Api::Models::Base.redis.flushdb
   end
 
   def app
-    MoviePicker::Server::Application
+    MoviePicker::Api::Server::Application
   end
 
   def json(json)
