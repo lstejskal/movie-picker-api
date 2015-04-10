@@ -6,7 +6,7 @@ module MoviePicker
     module Server
       class Application < Sinatra::Base
         include MoviePicker::Api::Models
-
+        
         enable :logging
         set :logging, Logger::DEBUG if ENV["DEBUG"]
 
@@ -22,6 +22,8 @@ module MoviePicker
         before do
           # params.symbolize_keys!
           content_type "application/json"
+
+          headers "Access-Control-Allow-Origin" => "*"
         end
 
         def json(value)
