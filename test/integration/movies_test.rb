@@ -21,7 +21,7 @@ module MoviePicker
             get "/movies"
 
             assert_equal 200, response.status
-            movies = json(response.body)[:data][:movies]
+            movies = json(response.body)
 
             assert_equal 5, movies.size
           end

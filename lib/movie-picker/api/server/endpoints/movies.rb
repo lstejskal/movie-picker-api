@@ -11,7 +11,8 @@ module MoviePicker
               movies = Movie.all
 
               status 200
-              json(data: { movies: movies })
+              # json(data: { movies: movies })
+              json(movies.map { |m| { movie: { id: m.parameterize, name: m } } })
             end
 
             app.post "/movies" do

@@ -26,11 +26,8 @@ Gem::Specification.new do |spec|
   spec.add_dependency "rack"
   spec.add_dependency "rack-parser"
   spec.add_dependency "sinatra"
+  spec.add_dependency "activesupport"
   spec.add_dependency "redis"
-
-#  for virtual models
-#  spec.add_dependency "hashie"
-#  spec.add_dependency "virtus"
 
   spec.add_development_dependency "bundler", "~> 1.9"
   spec.add_development_dependency "rake", "~> 10.0"
