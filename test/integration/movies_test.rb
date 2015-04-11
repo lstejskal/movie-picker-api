@@ -48,6 +48,18 @@ module MoviePicker
             assert_equal 5, movies.size
           end
 
+          should "not be added if something goes wrong" do
+
+            Movie.expects(:add).returns(false)
+
+            post "/movies", MultiJson.dump({name: 'error'})
+
+            assert_equal 500, response.status
+
+            movies = Movie.all
+            assert_equal 5, movies.size
+          end
+
           should "pick random movie" do
 
             movie = Movie.all.first
